@@ -1,0 +1,401 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* reset */
+* {margin: 0; padding: 0;}
+li {list-style: none;}
+a {text-decoration: none; color: inherit;}
+img {display: inline-block;}
+address {font-style: normal;}
+small {font-size: 16px;}
+
+/* 아웃라인 */
+/* section, div, header, h1, ul, li, nav, footer {outline: 1px dotted red;} */
+
+/* 기본 색상 */
+:root {
+  --main-color : #5d9ab2;
+  --accent-color : #bf6a7a;
+  --accent-over-color : #ce7689;
+  --dark-main-color : #2b5566;
+  --text-bright-color : #fff;
+  --icon-color : #fff;
+  --icon-bg-color : #ddd;
+  --gray-color: #ddd;
+  --large-width : 1000px;
+  --middle-width: 800px;
+}
+
+/* 기본설정 : 폰트 크기 */
+@media (max-width: 599px) {
+  :root {
+    font-size: 14px;
+  }
+}
+@media (min-width: 600px) and (max-width: 799px) {
+  :root {
+    font-size: 16px;
+  }
+}
+@media (min-width: 800px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+/* 기본설정 : 페이지 전체 */
+body {
+  background-color: #fff;
+  font-family: 'Nanum Gothic', sans-serif; color: #333;
+  font-size: 16px;
+}
+
+/* 헤더 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: rgba(255,255,255,.5);
+}
+
+/* 헤더 contents sub페이지 */
+.nohero header {position: static; border-bottom: 1px solid var(--gray-color);}
+
+/* 헤더A: 사이트이름 */
+.headA {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 24px;
+  line-height: 70px;
+  color: var(--text-bright-color);
+  font-family: 'Montserrat', sans-serif;
+  background: var(--main-color);
+}
+
+/* 헤더B: 네비게이션 메뉴 */
+.headB {display: none;}
+.headB a {
+  display: block;
+  padding: 15px;
+  font-size: 12px;
+}
+
+.headB a:hover {
+  background-color: rgb(0,0,0,.3);
+}
+
+@media screen and (max-width: 767px) {
+  /* 작은 화면 전용 설정 */
+  header .container_small {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .headB {display: block!important;}
+  .headB ul {
+    display: flex;
+  }
+  
+  .headC {
+    margin-right: 10px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 28px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .headC:hover {opacity: 0.3;}
+}
+
+@media screen and (min-width: 768px) {
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--large-width);
+    margin: 0 auto;
+  }
+
+  .headC {
+    display: none;
+  }
+
+}
+
+
+/* 컨텐츠A : 히어로 이미지 */
+.conA {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 가로 세로 가운데 정렬 */
+  height: 100vh; min-height: 450px; /* 스크롤이 생겼을 경우 아래 그림에 흰색 박스가 나타나지 않게 하기 위해 */
+  background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.5)), url(../img/fruits.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color : var(--text-bright-color); /* 둘중에 하나만 작성해도 가능함. 지원여부 체크하는 것이 좋음  */
+  color : #fff; /* 혹시 모를 경우를 대비해 하나 더 입력 */
+  transition: 0.5s;
+}
+/* .conA .container {width: 20%; text-align: center;} */
+.conA .container {justify-content: center;}
+.conA .container img {width: 20%;}
+.conA h1 {text-transform: uppercase;
+  font-size: 15vw; /* font-size: 48px;  */
+  margin-left: 0.2em; /* 왼쪽과 오른쪽의 균형을 맞춰주기 위해 왼쪽 마진여백 추가 */
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.2em;
+  
+}
+/* vw : 화면의 너비를 100vw로 하는 단위
+1vw : 화면너비의 100분의 1 */
+/* 320px 기준일 때 48px은 몇 vw?
+320px : 100vw = 48px : X
+320X = 4800
+X = 4800/320 = 15 */
+
+
+/* 가로 사이즈
+ 안드로이드 : 600px, 768px, 1024px
+아이폰 : 480px, 760px, 1000px */
+
+.conA p {font-size: 18px;}
+
+.conA a {
+  display: inline-block;
+  border: 1px solid currentColor /* var(--text-bright-color) */; 
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  font-size: 14px;
+  transition: 0.5s;
+}
+.conA a:hover {
+  background-color: var(--accent-over-color);
+  /* background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.2)); */
+  /* background-image 가 위에, background-color 가 아래에 있어 gradient 가 위에 덮어질 수 있음 */
+    }
+/* 기본을 모바일 사이즈로 우선하고 media로 pc버전 */
+
+
+
+/* 컨텐츠 B */
+.conB .container {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+.conB .text {
+  /* padding: 0 20px 60px; */
+  padding-right: 20px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+.conB .icon {
+  width: 2em; height: 2em;
+  border-radius: 50%;
+  background-color: var(--icon-bg-color);
+  color : var(--icon-color);
+  font-size: 40px;
+  line-height: 2em;
+  margin: 20px;
+}
+.conB .h2 {margin: 1em 0; font-size: 20px;}
+.conB p {margin: 1em 0; font-size: 14px; opacity: 0.8;}
+
+
+/* 컨텐츠 C */
+.conC {background-color: var(--main-color); color: var(--text-bright-color);}
+
+.conC .photo {
+  min-height: 200px;
+  background-image: url(../img/note.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.conC h2 {margin: 1em 0; font-size: 20px;}
+.conC p {margin: 1em 0; font-size: 14px; line-height: 1.8; opacity: 0.8;} 
+
+.conC a {
+  display: inline-block;
+  border: 1px solid currentColor /* var(--text-bright-color) */; 
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  font-size: 14px;
+  transition: 0.5s;
+}
+.conC a:hover {
+  background-color: var(--accent-over-color);}
+
+
+  /* 컨텐츠 D */
+  .conD {background-color: var(--main-color); color: var(--text-bright-color);}
+
+  .conD .photo {
+    min-height: 200px;
+    background-image: url(../img/life.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .conD h2 {margin: 1em 0; font-size: 20px;}
+  .conD p {margin: 1em 0; font-size: 14px; line-height: 1.8; opacity: 0.8;} 
+  
+  .conD a {
+    display: inline-block;
+    border: 1px solid currentColor /* var(--text-bright-color) */; 
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    background-color: var(--accent-color);
+    font-size: 14px;
+    transition: 0.5s;
+  }
+  .conD a:hover {
+    background-color: var(--accent-over-color);}
+  
+/* 푸터 */
+footer {background-color: var(--dark-main-color); color: var(--text-bright-color);}
+
+footer .container {padding: 40px 20px;}
+
+
+
+
+@media screen and (min-width : 768px) {
+  .conA h1 {
+    font-size: 115px;
+    /* 768px 기준 15vw = ?px
+    100vw : 768px
+    1vw = 7.68px
+    15vw : 115.2px
+    X = 1500/768
+    */
+  }
+  .conA p {
+    font-size: 24px;
+  }
+  
+  .conB .container {
+    max-width: var(--large-width);
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  .conB .text {flex : 1;}
+
+  .conC .container {display: flex; max-width: var(--large-width); margin: 0 auto;}
+  .conC .photo {flex: 3}
+  .conC .text {flex: 2; padding: 50px;}
+
+  .conD .container {display: flex; flex-direction: row-reverse; max-width: var(--large-width); margin: 0 auto; padding: 40px 0;}
+  .conD .photo {flex: 0 0 400px;}
+  .conD .text {flex: 1; padding: 50px;}
+}
+
+
+/* 푸터A : 사이트 정보 */
+.footA {margin-bottom: 30px;}
+.footA h2 {margin-bottom: 10px; font-size:  30px; font-family: 'Montserrat', sans-serif; letter-spacing: .2em;}
+.footA address {font-size: 14px;}
+
+/* 푸터B : 푸터 메뉴 */
+.footB h3 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid currentColor;
+  font-size: 14px;
+}
+
+.footB a {
+  display: block;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.footB a:hover {
+  background-color: rgb(0,0,0,.3);
+}
+
+@media screen and (min-width: 768px) {
+  .footB {display: flex; gap: 40px;}
+  .footB div {flex: 1;}
+}
+
+/* 푸터C : 저작권 */
+.footC {
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif; letter-spacing: .2em;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  footer .container {display: flex; flex-wrap: wrap; max-width: var(--large-width); margin: 0 auto;}
+  .footA {flex: 0 0 40%;}
+  .footB {flex: 0 0 60%;}
+  .footC {flex: 0 0 100%;}
+}
+
+/* 푸터D : SNS 메뉴 */
+.footD {margin-top: 20px;}
+.footD ul {display: flex;}
+.footD a {
+  display: block; 
+  font-size: 16px;
+  width: 2em;
+  height: 2em;
+  margin-right: 8px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  text-align: center;
+  line-height: 2;
+}
+.footD a:hover {background-color: rgba(0,0,0,.3);}
+
+
+/* 콘텐츠 페이지 : 기사 */
+.post .container {
+  max-width: var(--middle-width);
+  margin: 0 auto;
+  padding: 30px 10px;
+}
+.post h1 {
+  margin: 1em 0;
+  padding-left: .5rem;
+  font-size: 2rem;
+  border-left: .75rem solid var(--accent-color);
+}
+
+.post img {
+  max-width: 100%;
+}
+
+.post p {
+  margin: 1em 0;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+/* 콘텐츠 페이지 : 빵 부스러기 리스트 */
+.bread ol {display: flex;}
+.bread a {
+  display: block;
+  padding: 5px;
+  font-size: 12px;
+}
+.bread a::after {content: '\f105'; font-family: 'fontawesome'; opacity: 0.7; margin-left: 10px;}
+
+.bread a:hover {
+  background-color: rgb(0,0,0,.3);
+}
