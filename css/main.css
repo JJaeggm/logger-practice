@@ -94,11 +94,6 @@ header {
     justify-content: space-between;
   }
 
-  .headB {display: block!important;}
-  .headB ul {
-    display: flex;
-  }
-  
   .headC {
     margin-right: 10px;
     padding: 0;
@@ -119,6 +114,11 @@ header {
     justify-content: space-between;
     max-width: var(--large-width);
     margin: 0 auto;
+  }
+
+  .headB {display: block!important;}
+  .headB ul {
+    display: flex;
   }
 
   .headC {
